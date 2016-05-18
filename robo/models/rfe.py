@@ -6,7 +6,7 @@ class RFE(BaseModel):
     
     def __init__(self, l, sigma_w, *args, **kwargs):
         """
-        Random Fourier Expansions
+        Random Fourier Expansions. 
         
         Parameters
         ----------
@@ -30,7 +30,6 @@ class RFE(BaseModel):
         self.X = X
         self.Y = Y
         N,D = X.shape
-
         b =  []
         for i in xrange(0,D):
             bk = np.random.uniform(0,2*np.pi)
@@ -63,8 +62,7 @@ class RFE(BaseModel):
             predictive variance
         """
         N,D = X_test.shape
-        var = np.zeros(X_test.shape)
-
+        var = 0
         A_test = np.cos((self.w.dot(X_test.T)).T+self.b)
         g = (A_test.dot(self.cn))/np.sqrt(N)
         return g, var
