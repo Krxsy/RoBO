@@ -1,8 +1,5 @@
 import numpy as np
-import logging
 from robo.models.base_model import BaseModel
-
-logger = logging.getLogger(__name__)
 
 
 class RFE(BaseModel):
@@ -13,7 +10,7 @@ class RFE(BaseModel):
         
         Parameters
         ----------
-        l = lambda
+        l = lambda: regularization parameter
         sigma_w = standard deviation of the Gaussian distribution
         """
         self.l =  l
